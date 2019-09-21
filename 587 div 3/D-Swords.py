@@ -17,8 +17,6 @@ res = left[0]
 for c in left[1::]:
     res = gcd(res , c)
 
-m = max(left)
-
 count = 0
 
 for num in left:
