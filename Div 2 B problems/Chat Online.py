@@ -1,9 +1,9 @@
-p, q, l, r = map(int, input().split())
+piles, q, l, r = map(int, input().split())
 resp = [False for x in range(1001)]
 
 Z = []
 X = []
-for i in range(p):
+for i in range(piles):
     Z.append(tuple(map(int, input().split())))
 for i in range(q):
     X.append(list(map(int, input().split())))
