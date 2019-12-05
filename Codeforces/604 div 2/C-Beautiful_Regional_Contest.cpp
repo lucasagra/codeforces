@@ -10,49 +10,48 @@ int main()
         int n; cin >> n;
         int points[n];
         int gold;
-        int goldqt = 0;
+        int gold_qt = 0;
         for(int i = 0; i < n; i++){
             cin >> points[i];   
             if(i == 0) {
                 gold = points[i];
             }
-            if(points[i] == gold) goldqt++;
+            if(points[i] == gold) gold_qt++;
         }
 
-        int medalsqt = (n/2)-1;
-        while (medalsqt > 0 && points[medalsqt] == points[medalsqt + 1])
-        {
-            medalsqt--;
-        }
-        medalsqt++;
-        int bqt = 1;
-        int b = medalsqt-1;
-        while (b > 0 && bqt <= goldqt)
+        int medals_qt = (n/2)-1;
+        while (medals_qt > 0 && points[medals_qt] == points[medals_qt + 1])
+            medals_qt--;
+        
+        medals_qt++;
+        int bronze_qt = 1;
+        int b = medals_qt-1;
+        while (b > 0 && bronze_qt <= gold_qt)
         {
             while (b > 0 && points[b] == points[b-1]) {
                 b--;
-                bqt++;
+                bronze_qt++;
             }
-            if(bqt <= goldqt) {
+            if (bronze_qt <= gold_qt)
+            {
                 b--;
-                bqt++;
+                bronze_qt++;
             }
         }
         while (b > 0 && points[b] == points[b - 1])
         {
             b--;
-            bqt++;
+            bronze_qt++;
         }
 
-        int rest = medalsqt - goldqt;
-        int sqt = rest-bqt;
+        int silver_qt = medals_qt - gold_qt - bronze_qt;
 
-        if (goldqt >= sqt || goldqt >= bqt)
+        if (gold_qt >= silver_qt || gold_qt >= bronze_qt)
         {
             cout << 0 << " " << 0 << " " << 0 << endl;
             continue;
         }
-        cout << goldqt << " " << sqt << " " << bqt << endl;
+        cout << gold_qt << " " << silver_qt << " " << bronze_qt << endl;
 
     }
     return 0;
